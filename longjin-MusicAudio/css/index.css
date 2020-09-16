@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+   width: 22rem;
+  overflow: auto;
+  margin: 0.8rem auto;
+}
+header,
+footer {
+  height: 2.4rem;
+  line-height: 2.4rem;
+  background-image: linear-gradient(to right, #e66465, #9198e5);
+  text-align: center;
+  font-size: 0.48rem;
+  color: white;
+}
+ul {
+  height: 24rem;
+  overflow: auto;
+  background-image: linear-gradient(#5FC4CA, #37B9E9);
+}
+li {
+  height: 2rem;
+  line-height: 2rem;
+  border-bottom: 1px solid #3FC9D5;
+  border-top: none;
+  font-size: 0.32rem;
+  text-indent: 0.4rem;
+  list-style: none;
+  cursor: pointer;
+}
+li:hover {
+  background-color: lightgray;
+}
+#ado {
+  width: 100%;
+  height: 1.6rem;
+  margin-top: 0.3rem;
+}
+.sty {
+  background-color: teal;
+  z-index: 1000;
+}

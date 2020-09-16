@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0" />
+    <title>music</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <header>音悦台</header>
+    <section>
+        <ul>
+            <li>不败的英雄 - 唐俊迪、张志林</li>
+            <li>君だけを守りたい - 中島文明</li>
+            <li>你从未离去 - 白挺</li>
+            <li>青春之火 (火力少年王主题曲2006版) - 潘松和</li>
+            <li>让我们荡起双桨 - 伍国忠</li>
+            <li>山楂树之恋 - 夏婉安</li>
+            <li>伤心的人别听慢歌 (贯彻快乐) - 五月天</li>
+            <li>手写的从前 - 周杰伦</li>
+            <li>涛声依旧 - 毛宁</li>
+            <li>我多喜欢你,你会知道 - 王俊琪</li>
+            <li>永远的奥特曼 - 毛毛</li>
+            <li>Brave Love,TIGA - 地球防衛団</li>
+        </ul>
+    </section>
+
+    <!-- 进度条-controls
+		控制音乐播放-play
+		判断音频是否播放完毕-ended -->
+    <audio src="" id="ado" controls=""></audio>
+
+    <footer>
+        当前播放的是:<span id="con"></span>
+    </footer>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    window.onload = function() {
+        var lis = document.getElementsByTagName('li');
+        var ado = document.getElementById("ado");
+        var con = document.getElementById("con");
+
+        var arr = [
+            "./audio/不败的英雄 - 唐俊迪、张志林.mp3",
+            "./audio/君だけを守りたい - 中島文明.mp3",
+            "./audio/你从未离去 - 白挺.mp3",
+            "./audio/青春之火 (火力少年王主题曲2006版) - 潘松和.mp3",
+            "./audio/让我们荡起双桨 - 伍国忠.mp3",
+            "./audio/山楂树之恋 - 夏婉安.mp3",
+            "./audio/伤心的人别听慢歌 (贯彻快乐) - 五月天.mp3",
+            "./audio/手写的从前 - 周杰伦.mp3",
+            "./audio/涛声依旧 - 毛宁.mp3",
+            "./audio/我多喜欢你,你会知道 - 王俊琪.mp3",
+            "./audio/永远的奥特曼 - 毛毛.mp3",
+            "./audio/Brave Love,TIGA - 地球防衛団.mp3",
+        ]
+
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onclick = function() {
+                for (var i = 0; i < arr.length; i++) {
+                    if (this == lis[i]) {
+                        lis[i].className = 'sty';
+                        ado.src = arr[i];
+                        ado.play();
+                        con.innerHTML = lis[i].innerHTML;
+                        var a = i;
+                        ado.onended = function() {
+                            a++;
+                            if (a > lis.length - 1) {
+                                a = 0;
+                            }
+                            for (var j = 0; j < lis.length; j++) {
+                                lis[j].className = '';
+                            }
+                            ado.src = arr[a];
+                            con.innerHTML = lis[a].innerHTML;
+                            ado.play();
+                            lis[a].className = 'sty';
+                        }
+
+                    } else {
+                        lis[i].className = '';
+                    }
+                }
+            }
+        }
+    }
+</script>
